@@ -66,9 +66,9 @@ export default function HeroSection() {
               className="text-lg sm:text-xl max-w-2xl mb-8 leading-relaxed"
               style={{ color: "rgba(245,240,232,0.8)", fontFamily: "var(--font-body)" }}
             >
-              一场关于AIDD领域的思维破局与核心痛点直击。
+              不再犹豫，先看真实跑起来的样子。
               <br className="hidden sm:block" />
-              通过实测案例与&ldquo;龙虾&rdquo;Agent的现场演示，看清AI工具的真本事与坑。
+              AI工具能干什么、会踩什么坑，讲完你自己判断。
             </motion.p>
 
             <motion.div
