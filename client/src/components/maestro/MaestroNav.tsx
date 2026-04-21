@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Menu, X, Github } from "lucide-react";
 import { Link } from "wouter";
-import { GITHUB_ORG, LEVELS } from "@/data/maestro";
+import { COURSE_REPO_URL, LEVELS } from "@/data/maestro";
 
 interface MaestroNavProps {
   onLevelClick: (id: string) => void;
@@ -81,7 +81,7 @@ export default function MaestroNav({ onLevelClick, active }: MaestroNavProps) {
             );
           })}
           <a
-            href={`https://github.com/${GITHUB_ORG}`}
+            href={COURSE_REPO_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1.5 px-3 py-1.5 ml-2 text-xs font-medium transition-all hover:opacity-80"
@@ -140,13 +140,13 @@ export default function MaestroNav({ onLevelClick, active }: MaestroNavProps) {
             </button>
           ))}
           <a
-            href={`https://github.com/${GITHUB_ORG}`}
+            href={COURSE_REPO_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 py-2 text-sm font-medium mt-1"
             style={{ color: "#D97757" }}
           >
-            <Github size={14} /> GitHub 组织
+            <Github size={14} /> GitHub 仓库
           </a>
         </div>
       )}

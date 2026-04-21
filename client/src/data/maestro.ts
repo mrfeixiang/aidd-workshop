@@ -1,5 +1,14 @@
 export type Difficulty = 1 | 2 | 3 | 4 | 5;
 
+export type Resource = {
+  /** canonical upstream repo backing this project */
+  github?: string;
+  /** DOI or paper URL */
+  paper?: string;
+  /** YouTube tutorial URL (single video or search URL) */
+  youtube?: string;
+};
+
 export type Project = {
   slug: string;
   title: string;
@@ -13,6 +22,7 @@ export type Project = {
   difficulty: Difficulty;
   deliverable: string;
   kind: "kickoff" | "build" | "capstone";
+  resources?: Resource;
 };
 
 export type Level = {
@@ -31,11 +41,17 @@ export type Level = {
 };
 
 /**
- * GitHub org used as the default project home. Swap for the learner's fork.
+ * Canonical GitHub home for the whole Maestro curriculum. Individual
+ * per-project repos will be spun off later; for now every project card
+ * points at the same course repo with a per-project hash anchor
+ * (e.g. #hello-molecule) — those become README sections as each
+ * project launches.
  */
-export const GITHUB_ORG = "aidd-maestro";
+export const GITHUB_USER = "mrfeixiang";
+export const COURSE_REPO = "AIDD101";
+export const COURSE_REPO_URL = `https://github.com/${GITHUB_USER}/${COURSE_REPO}`;
 
-const repo = (slug: string) => `https://github.com/${GITHUB_ORG}/${slug}`;
+const repo = (slug: string) => `${COURSE_REPO_URL}#${slug}`;
 
 export const LEVELS: Level[] = [
   {
@@ -70,6 +86,11 @@ export const LEVELS: Level[] = [
         difficulty: 1,
         deliverable: "notebooks/01_hello.ipynb + Pull Request",
         kind: "kickoff",
+        resources: {
+          github: "https://github.com/rdkit/rdkit",
+          youtube:
+            "https://www.youtube.com/results?search_query=rdkit+tutorial+for+beginners",
+        },
       },
       {
         slug: "git-drug-lab",
@@ -85,6 +106,11 @@ export const LEVELS: Level[] = [
         difficulty: 1,
         deliverable: "合并一条 PR 到 main，含 CI 绿灯",
         kind: "build",
+        resources: {
+          github: "https://github.com/git-guides",
+          youtube:
+            "https://www.youtube.com/results?search_query=git+github+for+scientists",
+        },
       },
       {
         slug: "aidd-env-starter",
@@ -100,6 +126,11 @@ export const LEVELS: Level[] = [
         difficulty: 2,
         deliverable: "environment.yml + make setup 一键跑通",
         kind: "build",
+        resources: {
+          github: "https://github.com/conda-forge/miniforge",
+          youtube:
+            "https://www.youtube.com/results?search_query=conda+environment+reproducibility",
+        },
       },
     ],
   },
@@ -135,6 +166,12 @@ export const LEVELS: Level[] = [
         difficulty: 2,
         deliverable: "reports/egfr_eda.html + 清洗后的 parquet",
         kind: "build",
+        resources: {
+          github: "https://github.com/chembl/chembl_webresource_client",
+          paper: "https://doi.org/10.1093/nar/gky1075",
+          youtube:
+            "https://www.youtube.com/results?search_query=chembl+bioactivity+tutorial",
+        },
       },
       {
         slug: "qsar-from-scratch",
@@ -150,6 +187,12 @@ export const LEVELS: Level[] = [
         difficulty: 3,
         deliverable: "training.py + model.pkl + REPORT.md",
         kind: "build",
+        resources: {
+          github: "https://github.com/scikit-learn/scikit-learn",
+          paper: "https://doi.org/10.1021/jm4004285",
+          youtube:
+            "https://www.youtube.com/results?search_query=qsar+machine+learning+tutorial",
+        },
       },
       {
         slug: "similarity-search-cli",
@@ -165,6 +208,12 @@ export const LEVELS: Level[] = [
         difficulty: 3,
         deliverable: "PyPI 上线 + GitHub Release",
         kind: "capstone",
+        resources: {
+          github: "https://github.com/rdkit/rdkit",
+          paper: "https://doi.org/10.1021/ci9803381",
+          youtube:
+            "https://www.youtube.com/results?search_query=tanimoto+similarity+cheminformatics",
+        },
       },
     ],
   },
@@ -200,6 +249,12 @@ export const LEVELS: Level[] = [
         difficulty: 3,
         deliverable: "analyze.py + report.ipynb + .pdb 附件",
         kind: "build",
+        resources: {
+          github: "https://github.com/Discngine/fpocket",
+          paper: "https://doi.org/10.1186/1471-2105-10-168",
+          youtube:
+            "https://www.youtube.com/results?search_query=fpocket+binding+site+prediction",
+        },
       },
       {
         slug: "vina-pipeline",
@@ -215,6 +270,12 @@ export const LEVELS: Level[] = [
         difficulty: 4,
         deliverable: "CLI: vina-pipeline run --receptor ... --ligands ...",
         kind: "build",
+        resources: {
+          github: "https://github.com/ccsb-scripps/AutoDock-Vina",
+          paper: "https://doi.org/10.1021/acs.jcim.1c00203",
+          youtube:
+            "https://www.youtube.com/results?search_query=autodock+vina+tutorial",
+        },
       },
       {
         slug: "virtual-screening-mini",
@@ -230,6 +291,12 @@ export const LEVELS: Level[] = [
         difficulty: 4,
         deliverable: "Snakefile + results/hits.csv + 可复现报告",
         kind: "capstone",
+        resources: {
+          github: "https://github.com/snakemake/snakemake",
+          paper: "https://doi.org/10.12688/f1000research.29032.2",
+          youtube:
+            "https://www.youtube.com/results?search_query=snakemake+bioinformatics+pipeline",
+        },
       },
     ],
   },
@@ -265,6 +332,12 @@ export const LEVELS: Level[] = [
         difficulty: 4,
         deliverable: "wandb run + REPORT.md + 推理脚本",
         kind: "build",
+        resources: {
+          github: "https://github.com/pyg-team/pytorch_geometric",
+          paper: "https://arxiv.org/abs/1704.01212",
+          youtube:
+            "https://www.youtube.com/results?search_query=pytorch+geometric+tutorial",
+        },
       },
       {
         slug: "transformer-reaction",
@@ -280,6 +353,12 @@ export const LEVELS: Level[] = [
         difficulty: 5,
         deliverable: "训练脚本 + checkpoint + inference demo",
         kind: "build",
+        resources: {
+          github: "https://github.com/rxn4chemistry/OpenNMT-py",
+          paper: "https://doi.org/10.1021/acscentsci.9b00576",
+          youtube:
+            "https://www.youtube.com/results?search_query=molecular+transformer+reaction+prediction",
+        },
       },
       {
         slug: "active-learning-lab",
@@ -295,6 +374,12 @@ export const LEVELS: Level[] = [
         difficulty: 5,
         deliverable: "多种策略对比报告 + 可复现随机种子",
         kind: "capstone",
+        resources: {
+          github: "https://github.com/modAL-python/modAL",
+          paper: "https://doi.org/10.1021/acs.jcim.1c00166",
+          youtube:
+            "https://www.youtube.com/results?search_query=active+learning+drug+discovery",
+        },
       },
     ],
   },
@@ -330,6 +415,12 @@ export const LEVELS: Level[] = [
         difficulty: 5,
         deliverable: "预训练权重 + 条件生成 demo + 评测脚本",
         kind: "build",
+        resources: {
+          github: "https://github.com/MolecularAI/Reinvent",
+          paper: "https://doi.org/10.1021/acs.jcim.0c00915",
+          youtube:
+            "https://www.youtube.com/results?search_query=reinvent+de+novo+molecule+generation",
+        },
       },
       {
         slug: "alphafold-pipeline",
@@ -345,6 +436,12 @@ export const LEVELS: Level[] = [
         difficulty: 5,
         deliverable: "端到端 Snakefile + 论文级报告模板",
         kind: "build",
+        resources: {
+          github: "https://github.com/facebookresearch/esm",
+          paper: "https://doi.org/10.1038/s41586-021-03819-2",
+          youtube:
+            "https://www.youtube.com/results?search_query=alphafold2+tutorial+drug+design",
+        },
       },
       {
         slug: "fep-workshop",
@@ -360,6 +457,12 @@ export const LEVELS: Level[] = [
         difficulty: 5,
         deliverable: "RBFE 结果 + blog + GitHub Release v1.0",
         kind: "build",
+        resources: {
+          github: "https://github.com/OpenFreeEnergy/openfe",
+          paper: "https://doi.org/10.1021/ja512751q",
+          youtube:
+            "https://www.youtube.com/results?search_query=free+energy+perturbation+tutorial",
+        },
       },
       {
         slug: "aidd-portfolio",
@@ -375,6 +478,11 @@ export const LEVELS: Level[] = [
         difficulty: 4,
         deliverable: "username.github.io 上线 + 6 个 pinned repos",
         kind: "capstone",
+        resources: {
+          github: "https://github.com/squidfunk/mkdocs-material",
+          youtube:
+            "https://www.youtube.com/results?search_query=technical+portfolio+github+tutorial",
+        },
       },
     ],
   },
