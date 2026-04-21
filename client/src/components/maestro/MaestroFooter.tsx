@@ -1,6 +1,6 @@
 import { Github, BookOpen, Music } from "lucide-react";
 import { Link } from "wouter";
-import { COURSE_REPO_URL, LEVELS, TOTAL_PROJECTS } from "@/data/maestro";
+import { AIDD_HUB_URL, COURSE_REPO_URL, LEVELS, TOTAL_PROJECTS } from "@/data/maestro";
 
 export default function MaestroFooter() {
   return (
@@ -65,6 +65,20 @@ export default function MaestroFooter() {
                 资源
               </h4>
               <ul className="space-y-2">
+                <li>
+                  <a
+                    href={AIDD_HUB_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-sm hover:text-[#D97757] transition-colors"
+                    style={{
+                      color: "rgba(245,240,232,0.6)",
+                      fontFamily: "var(--font-body)",
+                    }}
+                  >
+                    <Github size={14} /> AIDD 开源生态（drug-discovery 话题）
+                  </a>
+                </li>
                 <li>
                   <a
                     href={COURSE_REPO_URL}
