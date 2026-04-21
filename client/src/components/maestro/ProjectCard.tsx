@@ -1,5 +1,12 @@
 import { motion } from "framer-motion";
-import { Clock, Github, Target, Sparkles } from "lucide-react";
+import {
+  Clock,
+  Github,
+  Target,
+  Sparkles,
+  Youtube,
+  BookOpen,
+} from "lucide-react";
 import type { Project } from "@/data/maestro";
 
 interface ProjectCardProps {
@@ -138,11 +145,83 @@ export default function ProjectCard({ project, accent, index }: ProjectCardProps
         </div>
       </div>
 
+      {/* Related resources — paper / repo / tutorial */}
+      {project.resources &&
+        (project.resources.github ||
+          project.resources.paper ||
+          project.resources.youtube) && (
+          <div
+            className="flex flex-wrap gap-2 mb-3 pt-3 border-t"
+            style={{ borderColor: "rgba(26,54,54,0.08)" }}
+          >
+            <div
+              className="text-[10px] tracking-[0.2em] uppercase w-full mb-1"
+              style={{
+                color: "rgba(26,54,54,0.45)",
+                fontFamily: "var(--font-mono)",
+              }}
+            >
+              learn the topic
+            </div>
+            {project.resources.github && (
+              <a
+                href={project.resources.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 text-[11px] px-2 py-1 transition-all hover:opacity-80"
+                style={{
+                  border: `1px solid ${accent}55`,
+                  color: accent,
+                  fontFamily: "var(--font-body)",
+                }}
+              >
+                <Github size={11} /> upstream
+              </a>
+            )}
+            {project.resources.paper && (
+              <a
+                href={project.resources.paper}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 text-[11px] px-2 py-1 transition-all hover:opacity-80"
+                style={{
+                  border: `1px solid ${accent}55`,
+                  color: accent,
+                  fontFamily: "var(--font-body)",
+                }}
+              >
+                <BookOpen size={11} /> paper
+              </a>
+            )}
+            {project.resources.youtube && (
+              <a
+                href={project.resources.youtube}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 text-[11px] px-2 py-1 transition-all hover:opacity-80"
+                style={{
+                  border: `1px solid ${accent}55`,
+                  color: accent,
+                  fontFamily: "var(--font-body)",
+                }}
+              >
+                <Youtube size={11} /> tutorial
+              </a>
+            )}
+          </div>
+        )}
+
       {/* Footer */}
-      <div className="mt-auto flex items-center justify-between pt-3 border-t" style={{ borderColor: "rgba(26,54,54,0.08)" }}>
+      <div
+        className="mt-auto flex items-center justify-between pt-3 border-t"
+        style={{ borderColor: "rgba(26,54,54,0.08)" }}
+      >
         <div
           className="flex items-center gap-1.5 text-xs"
-          style={{ color: "rgba(26,54,54,0.6)", fontFamily: "var(--font-mono)" }}
+          style={{
+            color: "rgba(26,54,54,0.6)",
+            fontFamily: "var(--font-mono)",
+          }}
         >
           <Clock size={12} />
           {project.hours}

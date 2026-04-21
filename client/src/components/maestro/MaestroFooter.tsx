@@ -1,6 +1,6 @@
 import { Github, BookOpen, Music } from "lucide-react";
 import { Link } from "wouter";
-import { GITHUB_ORG, LEVELS, TOTAL_PROJECTS } from "@/data/maestro";
+import { COURSE_REPO_URL, LEVELS, TOTAL_PROJECTS } from "@/data/maestro";
 
 export default function MaestroFooter() {
   return (
@@ -67,7 +67,7 @@ export default function MaestroFooter() {
               <ul className="space-y-2">
                 <li>
                   <a
-                    href={`https://github.com/${GITHUB_ORG}`}
+                    href={COURSE_REPO_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 text-sm hover:text-[#D97757] transition-colors"
@@ -76,7 +76,7 @@ export default function MaestroFooter() {
                       fontFamily: "var(--font-body)",
                     }}
                   >
-                    <Github size={14} /> GitHub 课程组织
+                    <Github size={14} /> GitHub 课程仓库
                   </a>
                 </li>
                 <li>

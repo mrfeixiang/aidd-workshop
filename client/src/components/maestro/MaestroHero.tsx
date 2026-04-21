@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Github, ArrowDown } from "lucide-react";
-import { TOTAL_PROJECTS, TOTAL_HOURS, LEVELS, GITHUB_ORG } from "@/data/maestro";
+import { TOTAL_PROJECTS, TOTAL_HOURS, LEVELS, COURSE_REPO_URL } from "@/data/maestro";
 
 interface MaestroHeroProps {
   onStart: () => void;
@@ -156,7 +156,7 @@ export default function MaestroHero({ onStart }: MaestroHeroProps) {
                 进入 Level 0 <ArrowDown size={16} />
               </button>
               <a
-                href={`https://github.com/${GITHUB_ORG}`}
+                href={COURSE_REPO_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-6 py-3 text-sm font-semibold tracking-wide transition-all hover:opacity-80"
@@ -167,7 +167,7 @@ export default function MaestroHero({ onStart }: MaestroHeroProps) {
                 }}
               >
                 <Github size={16} />
-                GitHub 课程组织
+                GitHub 仓库
               </a>
             </motion.div>
 
