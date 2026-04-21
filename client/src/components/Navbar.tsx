@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, GraduationCap } from "lucide-react";
+import { Link } from "wouter";
 
 interface NavbarProps {
   onNavClick: (id: string) => void;
@@ -63,6 +64,18 @@ export default function Navbar({ onNavClick }: NavbarProps) {
               {l.label}
             </button>
           ))}
+          <Link
+            to="/maestro"
+            className="flex items-center gap-1.5 text-sm font-semibold px-3 py-1.5 transition-all hover:opacity-90"
+            style={{
+              backgroundColor: "#1A3636",
+              color: "#F5F0E8",
+              fontFamily: "var(--font-body)",
+            }}
+          >
+            <GraduationCap size={14} />
+            从 0 到精通
+          </Link>
         </div>
 
         {/* Mobile toggle */}
@@ -97,6 +110,15 @@ export default function Navbar({ onNavClick }: NavbarProps) {
               {l.label}
             </button>
           ))}
+          <Link
+            to="/maestro"
+            className="flex items-center gap-2 w-full text-left py-2 mt-1 text-sm font-semibold"
+            style={{ color: "#D97757" }}
+            onClick={() => setOpen(false)}
+          >
+            <GraduationCap size={14} />
+            从 0 到精通 · Maestro
+          </Link>
         </div>
       )}
     </nav>
