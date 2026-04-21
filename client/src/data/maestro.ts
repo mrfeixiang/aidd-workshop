@@ -51,6 +51,15 @@ export const GITHUB_USER = "mrfeixiang";
 export const COURSE_REPO = "AIDD101";
 export const COURSE_REPO_URL = `https://github.com/${GITHUB_USER}/${COURSE_REPO}`;
 
+/**
+ * Curated hub for high-quality, cutting-edge AIDD repos. GitHub's native
+ * "drug-discovery" topic page is an evergreen directory that auto-surfaces
+ * popular repos (DeepChem, TDC, DiffDock, RFdiffusion, REINVENT, Boltz,
+ * …). Swap for a narrower org if the curriculum grows toward a specific
+ * ecosystem.
+ */
+export const AIDD_HUB_URL = "https://github.com/topics/drug-discovery";
+
 const repo = (slug: string) => `${COURSE_REPO_URL}#${slug}`;
 
 export const LEVELS: Level[] = [
