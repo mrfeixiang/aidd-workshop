@@ -22,7 +22,7 @@ export default function MaestroNav({ onLevelClick, active }: MaestroNavProps) {
       <div className="container flex items-center justify-between h-14">
         <div className="flex items-center gap-3">
           <Link
-            to="/"
+            to="/workshop"
             className="flex items-center gap-2 hover:opacity-80 transition-opacity"
           >
             <span

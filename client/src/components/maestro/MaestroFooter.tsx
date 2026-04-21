@@ -81,7 +81,7 @@ export default function MaestroFooter() {
                 </li>
                 <li>
                   <Link
-                    to="/"
+                    to="/workshop"
                     className="flex items-center gap-2 text-sm hover:text-[#D97757] transition-colors"
                     style={{
                       color: "rgba(245,240,232,0.6)",

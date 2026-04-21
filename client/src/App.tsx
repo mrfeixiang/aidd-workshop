@@ -14,8 +14,9 @@ const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
 function Routes() {
   return (
     <Switch>
-      <Route path={"/"} component={Home} />
+      <Route path={"/"} component={Maestro} />
       <Route path={"/maestro"} component={Maestro} />
+      <Route path={"/workshop"} component={Home} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>
