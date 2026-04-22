@@ -60,7 +60,9 @@ export const COURSE_REPO_URL = `https://github.com/${GITHUB_USER}/${COURSE_REPO}
  */
 export const AIDD_HUB_URL = "https://github.com/topics/drug-discovery";
 
-const repo = (slug: string) => `${COURSE_REPO_URL}#${slug}`;
+/** Each project now lives under /projects/<slug>/ in the course repo,
+ *  with its own README the "clone & start" button opens to. */
+const repo = (slug: string) => `${COURSE_REPO_URL}/tree/main/projects/${slug}`;
 
 export const LEVELS: Level[] = [
   {
