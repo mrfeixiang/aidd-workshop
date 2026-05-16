@@ -6,6 +6,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import Maestro from "./pages/Maestro";
+import AminoAcidGame from "./pages/AminoAcidGame";
 
 // Vite injects BASE_URL with a trailing slash ("/" or "/aidd-workshop/").
 // Wouter wants a base without the trailing slash.
@@ -17,6 +18,7 @@ function Routes() {
       <Route path={"/"} component={Maestro} />
       <Route path={"/maestro"} component={Maestro} />
       <Route path={"/workshop"} component={Home} />
+      <Route path={"/game"} component={AminoAcidGame} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>
