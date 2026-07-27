@@ -5,6 +5,7 @@ import { Route, Router as WouterRouter, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
+import Ipgone from "./pages/Ipgone";
 import Maestro from "./pages/Maestro";
 
 // Vite injects BASE_URL with a trailing slash ("/" or "/aidd-workshop/").
@@ -17,6 +18,7 @@ function Routes() {
       <Route path={"/"} component={Maestro} />
       <Route path={"/maestro"} component={Maestro} />
       <Route path={"/workshop"} component={Home} />
+      <Route path={"/ipgone"} component={Ipgone} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>
